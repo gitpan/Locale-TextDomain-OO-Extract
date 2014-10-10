@@ -553,13 +553,12 @@ __PACKAGE__->meta->make_immutable;
 __END__
 
 =head1 NAME
-
 Locale::TextDomain::OO::Extract::JavaScript
 - Extracts internationalization data from JavaScript code
 
-$Id: $
+$Id: JavaScript.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/JavaScript.pm $
 
 =head1 VERSION
 

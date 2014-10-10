@@ -36,7 +36,7 @@ for my $file (@files) {
     ->Useqq(1)
     ->Dump;
 
-# $Id: 13_extract_js.pl 286 2010-01-16 09:12:47Z steffenw $
+# $Id: 13_extract_js.pl 517 2014-10-09 13:52:18Z steffenw $
 
 __END__
 
@@ -47,8 +47,7 @@ $lexicon_ref = {
     "" => {
       msgstr => {
         nplurals => 2,
-        plural => "n != 1",
-        plural_code => sub { "DUMMY" }
+        plural => "n != 1"
       }
     },
     "Hello %1" => {
@@ -63,97 +62,8 @@ $lexicon_ref = {
         "files_to_extract/javascript.js:8" => undef
       }
     },
-    "MSGID 1" => {
-      msgid => "MSGID 1",
-      reference => {
-        "files_to_extract/javascript.js:35" => undef
-      }
-    },
-    "MSGID 10\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 10",
-      reference => {
-        "files_to_extract/javascript.js:44" => undef
-      }
-    },
-    "MSGID 11\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 11",
-      reference => {
-        "files_to_extract/javascript.js:45" => undef
-      }
-    },
-    "MSGID 12\0MSGID_PLURAL\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 12",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:46" => undef
-      }
-    },
-    "MSGID 13\0MSGID_PLURAL\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 13",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:47" => undef
-      }
-    },
-    "MSGID 2" => {
-      msgid => "MSGID 2",
-      reference => {
-        "files_to_extract/javascript.js:36" => undef
-      }
-    },
-    "MSGID 3\0MSGID_PLURAL" => {
-      msgid => "MSGID 3",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:37" => undef
-      }
-    },
-    "MSGID 4\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 4",
-      reference => {
-        "files_to_extract/javascript.js:38" => undef
-      }
-    },
-    "MSGID 5\0MSGID_PLURAL\4MSGCTXT" => {
-      msgctxt => "MSGCTXT",
-      msgid => "MSGID 5",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:39" => undef
-      }
-    },
-    "MSGID 6" => {
-      msgid => "MSGID 6",
-      reference => {
-        "files_to_extract/javascript.js:40" => undef
-      }
-    },
-    "MSGID 7" => {
-      msgid => "MSGID 7",
-      reference => {
-        "files_to_extract/javascript.js:41" => undef
-      }
-    },
-    "MSGID 8\0MSGID_PLURAL" => {
-      msgid => "MSGID 8",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:42" => undef
-      }
-    },
-    "MSGID 9\0MSGID_PLURAL" => {
-      msgid => "MSGID 9",
-      msgid_plural => "MSGID_PLURAL",
-      reference => {
-        "files_to_extract/javascript.js:43" => undef
-      }
-    },
     "One file deleted.\n\0%d files deleted.\n" => {
+      automatic => "count",
       msgid => "One file deleted.\n",
       msgid_plural => "%d files deleted.\n",
       reference => {
@@ -182,10 +92,28 @@ $lexicon_ref = {
       }
     },
     "one banana\0%1 bananas" => {
+      automatic => "count",
       msgid => "one banana",
       msgid_plural => "%1 bananas",
       reference => {
         "files_to_extract/javascript.js:22" => undef
+      }
+    },
+    "singular {foo}\0plural {foo}" => {
+      automatic => "count, {'foo' : 'bar'}",
+      msgid => "singular {foo}",
+      msgid_plural => "plural {foo}",
+      reference => {
+        "files_to_extract/javascript.js:40" => undef
+      }
+    },
+    "singular {foo}\0plural {foo}\4context" => {
+      automatic => "count, {'foo' : 'bar'}",
+      msgctxt => "context",
+      msgid => "singular {foo}",
+      msgid_plural => "plural {foo}",
+      reference => {
+        "files_to_extract/javascript.js:42" => undef
       }
     },
     "some string" => {
@@ -202,10 +130,57 @@ $lexicon_ref = {
         "files_to_extract/javascript.js:7" => undef
       }
     },
+    "text only" => {
+      msgid => "text only",
+      reference => {
+        "files_to_extract/javascript.js:35" => undef
+      }
+    },
+    "text {foo}" => {
+      automatic => "{'foo' : 'bar'}",
+      msgid => "text {foo}",
+      reference => {
+        "files_to_extract/javascript.js:37" => undef
+      }
+    },
     "this will get translated" => {
       msgid => "this will get translated",
       reference => {
         "files_to_extract/javascript.js:6" => undef
+      }
+    }
+  },
+  "i-default::domain" => {
+    "" => {
+      msgstr => {
+        nplurals => 2,
+        plural => "n != 1"
+      }
+    },
+    "singular {foo}\0plural {foo}\4context" => {
+      automatic => "count, {'foo' : 'bar'}",
+      msgctxt => "context",
+      msgid => "singular {foo}",
+      msgid_plural => "plural {foo}",
+      reference => {
+        "files_to_extract/javascript.js:44" => undef
+      }
+    }
+  },
+  "i-default:context:domain" => {
+    "" => {
+      msgstr => {
+        nplurals => 2,
+        plural => "n != 1"
+      }
+    },
+    "singular {foo}\0plural {foo}\4context" => {
+      automatic => "count, {'foo' : 'bar'}",
+      msgctxt => "context",
+      msgid => "singular {foo}",
+      msgid_plural => "plural {foo}",
+      reference => {
+        "files_to_extract/javascript.js:46" => undef
       }
     }
   }

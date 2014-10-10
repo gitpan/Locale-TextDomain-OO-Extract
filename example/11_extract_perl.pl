@@ -37,7 +37,7 @@ for my $file (@files) {
     ->Useqq(1)
     ->Dump;
 
-# $Id: 11_extract_perl.pl 291 2010-01-17 10:44:30Z steffenw $
+# $Id: 11_extract_perl.pl 517 2014-10-09 13:52:18Z steffenw $
 
 __END__
 
@@ -48,11 +48,11 @@ $lexicon_ref = {
     "" => {
       msgstr => {
         nplurals => 2,
-        plural => "n != 1",
-        plural_code => sub { "DUMMY" }
+        plural => "n != 1"
       }
     },
     "Singular\0Plural" => {
+      automatic => 1,
       msgid => "Singular",
       msgid_plural => "Plural",
       reference => {
@@ -68,6 +68,7 @@ $lexicon_ref = {
       }
     },
     "[*,_1,date,dates,no date]" => {
+      automatic => "0,",
       msgid => "[*,_1,date,dates,no date]",
       reference => {
         "files_to_extract/maketext.pl:46" => undef,
@@ -76,6 +77,7 @@ $lexicon_ref = {
       }
     },
     "[*,_1,date,dates]\4appointment" => {
+      automatic => "1,",
       msgctxt => "appointment",
       msgid => "[*,_1,date,dates]",
       reference => {
@@ -84,25 +86,28 @@ $lexicon_ref = {
       }
     },
     "[_1] is programming [_2]." => {
+      automatic => "'Steffen', 'Perl',",
       msgid => "[_1] is programming [_2].",
       reference => {
         "files_to_extract/maketext.pl:19" => undef
       }
     },
     "[quant,_1,date,dates]" => {
+      automatic => "1,",
       msgid => "[quant,_1,date,dates]",
       reference => {
         "files_to_extract/maketext.pl:24" => undef,
         "files_to_extract/maketext.pl:28" => undef
       }
     },
-    "\\' quoted text with \\." => {
-      msgid => "\\' quoted text with \\.",
+    "\\' quoted text with \\\\." => {
+      msgid => "\\' quoted text with \\\\.",
       reference => {
-        'gettext.pl:83' => undef
+        "files_to_extract/gettext.pl:83" => undef
       }
     },
     "date\0dates\4appointment" => {
+      automatic => 1,
       msgctxt => "appointment",
       msgid => "date",
       msgid_plural => "dates",
@@ -119,13 +124,35 @@ $lexicon_ref = {
         "files_to_extract/maketext.pl:32" => undef
       }
     },
+    "q\\{ quoted text with {placeholders\\}}." => {
+      msgid => "q\\{ quoted text with {placeholders\\}}.",
+      reference => {
+        "files_to_extract/gettext.pl:86" => undef
+      }
+    },
+    "quoted text." => {
+      msgid => "quoted text.",
+      reference => {
+        "files_to_extract/gettext.pl:89" => undef
+      }
+    },
+    "text of no domain and no category" => {
+      msgid => "text of no domain and no category",
+      reference => {
+        "files_to_extract/gettext.pl:107" => undef,
+        "files_to_extract/gettext.pl:111" => undef,
+        "files_to_extract/gettext.pl:99" => undef
+      }
+    },
     "{name} is programming {language}." => {
+      automatic => "name => 'Steffen', language => 'Perl',",
       msgid => "{name} is programming {language}.",
       reference => {
         "files_to_extract/gettext.pl:19" => undef
       }
     },
     "{num} date\0{num} dates" => {
+      automatic => "1, num => 1,",
       msgid => "{num} date",
       msgid_plural => "{num} dates",
       reference => {
@@ -134,6 +161,7 @@ $lexicon_ref = {
       }
     },
     "{num} date\0{num} dates\4appointment" => {
+      automatic => "1, num => 1,",
       msgctxt => "appointment",
       msgid => "{num} date",
       msgid_plural => "{num} dates",
@@ -143,10 +171,57 @@ $lexicon_ref = {
       }
     },
     "{num} date\4appointment" => {
+      automatic => "num => 1,",
       msgctxt => "appointment",
       msgid => "{num} date",
       reference => {
         "files_to_extract/gettext.pl:50" => undef
+      }
+    }
+  },
+  "i-default::domain d" => {
+    "" => {
+      msgstr => {
+        nplurals => 2,
+        plural => "n != 1"
+      }
+    },
+    "text of domain d and no category" => {
+      msgid => "text of domain d and no category",
+      reference => {
+        "files_to_extract/gettext.pl:101" => undef,
+        "files_to_extract/gettext.pl:94" => undef
+      }
+    }
+  },
+  "i-default:category c:" => {
+    "" => {
+      msgstr => {
+        nplurals => 2,
+        plural => "n != 1"
+      }
+    },
+    "text of no domain and category c" => {
+      msgid => "text of no domain and category c",
+      reference => {
+        "files_to_extract/gettext.pl:105" => undef,
+        "files_to_extract/gettext.pl:95" => undef
+      }
+    }
+  },
+  "i-default:category c:domain d" => {
+    "" => {
+      msgstr => {
+        nplurals => 2,
+        plural => "n != 1"
+      }
+    },
+    "text of domain d and category c" => {
+      msgid => "text of domain d and category c",
+      reference => {
+        "files_to_extract/gettext.pl:103" => undef,
+        "files_to_extract/gettext.pl:109" => undef,
+        "files_to_extract/gettext.pl:96" => undef
       }
     }
   }

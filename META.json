@@ -16,6 +16,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
+            "Cwd" : "0",
             "Test::Differences" : "0.60",
             "Test::Exception" : "0",
             "Test::More" : "0",
@@ -35,11 +36,11 @@
          "requires" : {
             "Carp" : "0",
             "Clone" : "0",
-            "Cwd" : "0",
             "Data::Dumper" : "0",
             "Moo" : "1.003001",
             "MooX::StrictConstructor" : "0",
             "MooX::Types::MooseLike" : "0",
+            "Path::Tiny" : "0",
             "charnames" : "0",
             "namespace::autoclean" : "0",
             "perl" : "5.009005"
@@ -49,7 +50,7 @@
    "provides" : {
       "Locale::TextDomain::OO::Extract" : {
          "file" : "lib/Locale/TextDomain/OO/Extract.pm",
-         "version" : "2.000"
+         "version" : "2.001"
       },
       "Locale::TextDomain::OO::Extract::Base::RegexBasedExtractor" : {
          "file" : "lib/Locale/TextDomain/OO/Extract/Base/RegexBasedExtractor.pm",
@@ -73,7 +74,11 @@
       },
       "Locale::TextDomain::OO::Extract::Role::File" : {
          "file" : "lib/Locale/TextDomain/OO/Extract/Role/File.pm",
-         "version" : "2.000"
+         "version" : "2.001"
+      },
+      "Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys" : {
+         "file" : "lib/Locale/TextDomain/OO/Extract/Role/JoinSplitLexiconKeys.pm",
+         "version" : "2.001"
       },
       "Locale::TextDomain::OO::Extract::TT" : {
          "file" : "lib/Locale/TextDomain/OO/Extract/TT.pm",
@@ -86,5 +91,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "2.000"
+   "version" : "2.001"
 }

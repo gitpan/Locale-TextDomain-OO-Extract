@@ -6,10 +6,10 @@ use Moo::Role;
 use MooX::Types::MooseLike::Base qw(ArrayRef HashRef Str);
 use namespace::autoclean;
 
-our $VERSION = '2.000';
+our $VERSION = '2.001';
 
 with qw(
-    Locale::TextDomain::OO::Extract::Role::Constants
+    Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys
 );
 
 has category => (
@@ -67,36 +67,6 @@ sub clear {
     return;
 }
 
-sub _join_lexicon_key {
-    my ($self, $arg_ref) = @_;
-
-    return join $self->lexicon_key_separator,
-        'i-default',
-        ( defined $arg_ref->{category} ? $arg_ref->{category} : q{} ),
-        ( defined $arg_ref->{domain}   ? $arg_ref->{domain}   : q{} );
-}
-
-my $length_or_empty_list = sub {
-    my $item = shift;
-
-    defined $item or return;
-    length $item or return;
-
-    return $item;
-};
-
-sub _join_message_key {
-    my ($self, $arg_ref) = @_;
-
-    return join $self->msg_key_separator,
-        (
-            join $self->plural_separator,
-                $length_or_empty_list->( $arg_ref->{msgid} ),
-                $length_or_empty_list->( $arg_ref->{msgid_plural} ),
-        ),
-        $length_or_empty_list->( $arg_ref->{msgctxt} );
-}
-
 my $list_if_length = sub {
     my ($item, @list) = @_;
 
@@ -110,7 +80,7 @@ sub add_message {
     my ($self, $msg_ref) = @_;
 
     # build the lexicon part
-    my $lexicon_key = $self->_join_lexicon_key({(
+    my $lexicon_key = $self->join_lexicon_key({(
         map {
             $_ => $msg_ref->{$_};
         } qw( domain category )
@@ -127,7 +97,7 @@ sub add_message {
         };
 
     # build the message part
-    my $msg_key = $self->_join_message_key({(
+    my $msg_key = $self->join_message_key({(
         map {
             $_ => $msg_ref->{$_};
         } qw( msgctxt msgid msgid_plural )
@@ -152,16 +122,15 @@ sub add_message {
 __END__
 
 =head1 NAME
-
 Locale::TextDomain::OO::Extract::Role::File - Gettext file related stuff
 
-$Id: $
+$Id: File.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/Role/File.pm $
 
 =head1 VERSION
 
-2.000
+2.001
 
 =head1 DESCRIPTION
 
@@ -226,6 +195,8 @@ L<Moo::Role|Moo::Role>
 L<MooX::Types::MooseLike::Base|MooX::Types::MooseLike::Base>
 
 L<namespace::autoclean|namespace::autoclean>
+
+L<Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys|Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys>
 
 =head1 INCOMPATIBILITIES
 

@@ -80,13 +80,12 @@ sub extract {
 __END__
 
 =head1 NAME
-
 Locale::TextDomain::OO::Extract::HTML
 - Extracts internationalization data from HTML
 
-$Id: $
+$Id: HTML.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/HTML.pm $
 
 =head1 VERSION
 

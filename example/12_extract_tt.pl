@@ -37,7 +37,7 @@ for my $file (@files) {
     ->Useqq(1)
     ->Dump;
 
-# $Id: 12_extract_tt.pl 286 2010-01-16 09:12:47Z steffenw $
+# $Id: 12_extract_tt.pl 517 2014-10-09 13:52:18Z steffenw $
 
 __END__
 
@@ -48,8 +48,7 @@ $lexicon_ref = {
     "" => {
       msgstr => {
         nplurals => 2,
-        plural => "n != 1",
-        plural_code => sub { "DUMMY" }
+        plural => "n != 1"
       }
     },
     "Text \x{c4}" => {

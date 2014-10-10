@@ -36,7 +36,7 @@ for my $file (@files) {
     ->Useqq(1)
     ->Dump;
 
-# $Id: $
+# $Id: 14_extract_html.pl 517 2014-10-09 13:52:18Z steffenw $
 
 __END__
 
@@ -47,21 +47,20 @@ $lexicon_ref = {
     "" => {
       msgstr => {
         nplurals => 2,
-        plural => "n != 1",
-        plural_code => sub { "DUMMY" }
+        plural => "n != 1"
       }
     },
     "This is a p text." => {
       msgid => "This is a p text.",
       reference => {
-        "files_to_extract/text.html:5" => undef
+        "files_to_extract/text.html:8" => undef
       }
     },
     "This is an a text." => {
       msgid => "This is an a text.",
       reference => {
-        "files_to_extract/text.html:11" => undef,
-        "files_to_extract/text.html:8" => undef
+        "files_to_extract/text.html:10" => undef,
+        "files_to_extract/text.html:13" => undef
       }
     }
   }

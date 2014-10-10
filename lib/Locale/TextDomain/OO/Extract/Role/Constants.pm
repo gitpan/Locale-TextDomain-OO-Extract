@@ -25,12 +25,11 @@ sub plural_separator {
 __END__
 
 =head1 NAME
-
 Locale::TextDomain::OO::Extract::Role::Constants - Lexicon constants
 
-$Id: $
+$Id: Constants.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/Role/Constants.pm $
 
 =head1 VERSION
 

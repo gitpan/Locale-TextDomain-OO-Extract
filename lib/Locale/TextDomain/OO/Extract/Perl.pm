@@ -449,13 +449,12 @@ __PACKAGE__->meta->make_immutable;
 __END__
 
 =head1 NAME
-
 Locale::TextDomain::OO::Extract::Perl
 - Extracts internationalization data from Perl source code
 
-$Id: $
+$Id: Perl.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/Perl.pm $
 
 =head1 VERSION
 

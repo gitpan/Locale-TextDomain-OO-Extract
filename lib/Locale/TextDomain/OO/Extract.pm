@@ -3,24 +3,22 @@ package Locale::TextDomain::OO::Extract; ## no critic (TidyCode)
 use strict;
 use warnings;
 
-our $VERSION = '2.000';
+our $VERSION = '2.001';
 
 1;
 
 __END__
 
 =head1 NAME
+Locale::TextDomain::OO::Extract - Extracts internationalization data
 
-Locale::TextDomain::OO::Extract
-- Extracts internationalization data
+$Id: Extract.pm 518 2014-10-09 14:56:14Z steffenw $
 
-$Id: $
-
-$HeadURL: $
+$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract.pm $
 
 =head1 VERSION
 
-2.000
+2.001
 
 =head1 DESCRIPTION
 

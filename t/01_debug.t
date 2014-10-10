@@ -1,15 +1,19 @@
-#!perl
 #!perl -T
 
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+use Test::More;
+BEGIN {
+    $ENV{AUTHOR_TESTING}
+        or plan skip_all => 'Author test. Set $ENV{AUTHOR_TESTING} to a true value to run.';
+}
 use Test::NoWarnings;
 use Test::Differences;
 
 BEGIN {
-    use_ok('Locale::TextDomain::OO::Extract::Base::RegexBasedExtractor');
+    plan tests => 4;
+    use_ok 'Locale::TextDomain::OO::Extract::Base::RegexBasedExtractor';
 }
 
 my $text_rule
