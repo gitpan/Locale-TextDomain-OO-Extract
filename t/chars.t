@@ -50,8 +50,6 @@ find(
 plan( tests => 6 * scalar @list );
 
 my @ignore_non_ascii = (
-    qr{ [.] (?: tt ) \z }xms,
-    qr{ _tt [.] (?: t | pl ) \z }xms,
 );
 
 for my $file_name (sort @list) {

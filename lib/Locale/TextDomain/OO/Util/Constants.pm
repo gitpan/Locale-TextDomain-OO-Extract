@@ -1,12 +1,17 @@
-package Locale::TextDomain::OO::Extract::Role::Constants;
+package Locale::TextDomain::OO::Util::Constants; ## no critic (TidyCode)
 
 use strict;
 use warnings;
-use Moo::Role;
+use Moo;
+use MooX::StrictConstructor;
 use charnames qw(:full);
 use namespace::autoclean;
 
-our $VERSION = '2.000';
+our $VERSION = '0.001';
+
+with qw(
+    MooX::Singleton
+);
 
 sub lexicon_key_separator {
     return q{:};
@@ -20,44 +25,46 @@ sub plural_separator {
     return "\N{NULL}";
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__
 
 =head1 NAME
-Locale::TextDomain::OO::Extract::Role::Constants - Lexicon constants
+Locale::TextDomain::OO::Util::Constants - Lexicon constants
 
-$Id: Constants.pm 518 2014-10-09 14:56:14Z steffenw $
+$Id: $
 
-$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/Role/Constants.pm $
+$HeadURL: $
 
 =head1 VERSION
 
-2.000
+0.001
 
 =head1 DESCRIPTION
 
-This role provides lexicon constants.
+This module provides lexicon constants.
 
 =head1 SYNOPSIS
 
-    with qw(
-        Locale::TextDomain::OO::Extract::Role::Constants
-    );
+    use Locale::TextDomain::OO::Util::Constants;
+
+    my $const = Locale::TextDomain::OO::Util::Constants->instance;
 
 =head1 SUBROUTINES/METHODS
 
 =head2 method lexicon_key_separator
 
-    $separator = $self->lexicon_key_separator;
+    $separator = $const->lexicon_key_separator;
 
 =head2 method msg_key_separator
 
-    $separator = $self->msg_key_separator;
+    $separator = $const->msg_key_separator;
 
 =head2 method plural_separator
 
-    $separator = $self->plural_separator;
+    $separator = $const->plural_separator;
 
 =head1 EXAMPLE
 
@@ -74,7 +81,9 @@ none
 
 =head1 DEPENDENCIES
 
-L<Moo::Role|Moo::Role>
+L<Moo|Moo>
+
+L<MooX::StrictConstructor|MooX::StrictConstructor>
 
 L<charnames|charnames>
 

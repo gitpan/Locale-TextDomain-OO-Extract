@@ -1,0 +1,86 @@
+package Locale::TextDomain::OO::Util;
+
+use strict;
+use warnings;
+
+our $VERSION = '0.001';
+
+1;
+
+__END__
+
+=head1 NAME
+Locale::TextDomain::OO::Util - Lexicon utils
+
+$Id: $
+
+$HeadURL: $
+
+=head1 VERSION
+
+0.001
+
+=head1 DESCRIPTION
+
+This modules provide methods
+for lexicon constants,
+to join and split lexicon keys
+and to extract the gettext file header.
+
+=head1 SYNOPSIS
+
+See:
+
+L<Locale::TextDomain::OO::Util::Constants|Locale::TextDomain::OO::Util::Constants>
+
+L<Locale::TextDomain::OO::Util::JoinSplitLexiconKeys|Locale::TextDomain::OO::Util::JoinSplitLexiconKeys>
+
+L<Locale::TextDomain::OO::Util::ExtractHeader|Locale::TextDomain::OO::Util::ExtractHeader>
+
+=head1 SUBROUTINES/METHODS
+
+none
+
+=head1 EXAMPLE
+
+Inside of this distribution is a directory named example.
+Run this *.pl files.
+
+=head1 DIAGNOSTICS
+
+none
+
+=head1 CONFIGURATION AND ENVIRONMENT
+
+none
+
+=head1 DEPENDENCIES
+
+none
+
+=head1 INCOMPATIBILITIES
+
+not known
+
+=head1 BUGS AND LIMITATIONS
+
+none
+
+=head1 SEE ALSO
+
+L<Locale::TextDoamin::OO|Locale::TextDoamin::OO>
+
+=head1 AUTHOR
+
+Steffen Winkler
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright (c) 2014,
+Steffen Winkler
+C<< <steffenw at cpan.org> >>.
+All rights reserved.
+
+This module is free software;
+you can redistribute it and/or modify it
+under the same terms as Perl itself.

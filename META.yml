@@ -1,5 +1,5 @@
 ---
-abstract: 'Locale::TextDomain::OO::Extract - Extracts internationalization data as gettext pot file'
+abstract: 'Locale::TextDomain::OO::Util - Lexicon utils'
 author:
   - 'Steffen Winkler <steffenw at cpan.org>'
 build_requires:
@@ -18,47 +18,32 @@ meta-spec:
   version: '1.4'
 name: Locale-TextDomain-OO-Extract
 provides:
-  Locale::TextDomain::OO::Extract:
-    file: lib/Locale/TextDomain/OO/Extract.pm
+  Locale::TextDomain::OO::Util:
+    file: lib/Locale/TextDomain/OO/Util.pm
+    version: '0.001'
+  Locale::TextDomain::OO::Util::Constants:
+    file: lib/Locale/TextDomain/OO/Util/Constants.pm
+    version: '0.001'
+  Locale::TextDomain::OO::Util::ExtractHeader:
+    file: lib/Locale/TextDomain/OO/Util/ExtractHeader.pm
+    version: '0.001'
+  Locale::TextDomain::OO::Util::JoinSplitLexiconKeys:
+    file: lib/Locale/TextDomain/OO/Util/JoinSplitLexiconKeys.pm
     version: '2.001'
-  Locale::TextDomain::OO::Extract::Base::RegexBasedExtractor:
-    file: lib/Locale/TextDomain/OO/Extract/Base/RegexBasedExtractor.pm
-    version: '2.000'
-  Locale::TextDomain::OO::Extract::HTML:
-    file: lib/Locale/TextDomain/OO/Extract/HTML.pm
-    version: '2.000'
-  Locale::TextDomain::OO::Extract::JavaScript:
-    file: lib/Locale/TextDomain/OO/Extract/JavaScript.pm
-    version: '2.000'
-  Locale::TextDomain::OO::Extract::Perl:
-    file: lib/Locale/TextDomain/OO/Extract/Perl.pm
-    version: '2.000'
-  Locale::TextDomain::OO::Extract::Role::Constants:
-    file: lib/Locale/TextDomain/OO/Extract/Role/Constants.pm
-    version: '2.000'
-  Locale::TextDomain::OO::Extract::Role::File:
-    file: lib/Locale/TextDomain/OO/Extract/Role/File.pm
-    version: '2.001'
-  Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys:
-    file: lib/Locale/TextDomain/OO/Extract/Role/JoinSplitLexiconKeys.pm
-    version: '2.001'
-  Locale::TextDomain::OO::Extract::TT:
-    file: lib/Locale/TextDomain/OO/Extract/TT.pm
-    version: '2.000'
 recommends:
   Test::Pod: '1.14'
   Test::Pod::Coverage: '1.04'
 requires:
   Carp: '0'
   Clone: '0'
-  Data::Dumper: '0'
+  English: '0'
   Moo: '1.003001'
+  MooX::Singleton: '0'
   MooX::StrictConstructor: '0'
-  MooX::Types::MooseLike: '0'
-  Path::Tiny: '0'
+  Safe: '0'
   charnames: '0'
   namespace::autoclean: '0'
-  perl: '5.009005'
+  perl: '5.006'
 resources:
   license: http://dev.perl.org/licenses/
-version: '2.001'
+version: '0.001'

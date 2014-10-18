@@ -1,20 +1,24 @@
-package Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys; ## no critic (TidyCode)
+package Locale::TextDomain::OO::Util::JoinSplitLexiconKeys; ## no critic (TidyCode)
 
 use strict;
 use warnings;
-use Moo::Role;
+use Locale::TextDomain::OO::Util::Constants;
+use Moo;
+use MooX::StrictConstructor;
 use namespace::autoclean;
 
 our $VERSION = '2.001';
 
 with qw(
-    Locale::TextDomain::OO::Extract::Role::Constants
+    MooX::Singleton
 );
 
 sub join_lexicon_key {
-    my ($self, $arg_ref) = @_;
+    my ( $self, $arg_ref ) = @_;
 
-    return join $self->lexicon_key_separator,
+    my $const = Locale::TextDomain::OO::Util::Constants->instance;
+
+    return join $const->lexicon_key_separator,
         (
             ( defined $arg_ref->{language} && length $arg_ref->{language} )
             ? $arg_ref->{language}
@@ -25,12 +29,13 @@ sub join_lexicon_key {
 }
 
 sub split_lexicon_key {
-    my ($self, $lexicon_key) = @_;
+    my ( $self, $lexicon_key ) = @_;
 
     defined $lexicon_key
         or return {};
-    my ($language, $category, $domain)
-        = split $self->lexicon_key_separator, $lexicon_key;
+    my $const = Locale::TextDomain::OO::Util::Constants->instance;
+    my ( $language, $category, $domain )
+        = split $const->lexicon_key_separator, $lexicon_key;
 
     return {
         language => $language,
@@ -49,11 +54,13 @@ my $length_or_empty_list = sub {
 };
 
 sub join_message_key {
-    my ($self, $arg_ref) = @_;
+    my ( $self, $arg_ref ) = @_;
 
-    return join $self->msg_key_separator,
+    my $const = Locale::TextDomain::OO::Util::Constants->instance;
+
+    return join $const->msg_key_separator,
         (
-            join $self->plural_separator,
+            join $const->plural_separator,
                 $length_or_empty_list->( $arg_ref->{msgid} ),
                 $length_or_empty_list->( $arg_ref->{msgid_plural} ),
         ),
@@ -61,16 +68,17 @@ sub join_message_key {
 }
 
 sub split_message_key {
-    my ($self, $message_key) = @_;
+    my ( $self, $message_key ) = @_;
 
     defined $message_key
         or return {};
-    my ($text, $context)
-        = split $self->msg_key_separator, $message_key;
+    my $const = Locale::TextDomain::OO::Util::Constants->instance;
+    my ( $text, $context )
+        = split $const->msg_key_separator, $message_key;
     defined $text
         or $text = q{};
-    my ($singular, $plural)
-        = split $self->plural_separator, $text;
+    my ( $singular, $plural )
+        = split $const->plural_separator, $text;
 
     return {
         msgctxt      => $context,
@@ -79,35 +87,39 @@ sub split_message_key {
     };
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__
 
 =head1 NAME
-Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys
+Locale::TextDomain::OO::Util::JoinSplitLexiconKeys
 - Handle lexicon and message key
 
-$Id: JoinSplitLexiconKeys.pm 518 2014-10-09 14:56:14Z steffenw $
+$Id: $
 
-$HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trunk/lib/Locale/TextDomain/OO/Extract/Role/JoinSplitLexiconKeys.pm $
+$HeadURL: $
 
 =head1 VERSION
 
-2.001
+0.001
 
 =head1 DESCRIPTION
 
-Role to handle the lexicon and message key.
+Module to handle the lexicon and message key.
 
 =head1 SYNOPSIS
 
-    with 'Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys';
+    use Locale::TextDomain::OO::Uitl::JoinSplitLexiconKeys;
+
+    my $keys_util = Locale::TextDomain::OO::Uitl::JoinSplitLexiconKeys->instance;
 
 =head1 SUBROUTINES/METHODS
 
 =head2 method join_lexicon_key
 
-    $lexicon_key = $self->join_lexicon_key({
+    $lexicon_key = $keys_util->join_lexicon_key({
         category => 'LC_MESSAGES', # default q{}
         domain   => 'TextDomain',  # defuaut q{}
         language => 'de-de',       # default 'i-default'
@@ -117,11 +129,11 @@ Role to handle the lexicon and message key.
 
 This method is the reverse implementation of method join_lexicon_key.
 
-    $hash_ref = $self->split_lexicon_key($lexicon_key);
+    $hash_ref = $keys_util->split_lexicon_key($lexicon_key);
 
 =head2 method join_message_key
 
-    $message_key = $self->join_message_key({
+    $message_key = $keys_util->join_message_key({
         msgctxt      => 'my context',
         msgid        => 'simple text or singular',
         msgid_plural => 'plural',
@@ -131,7 +143,7 @@ This method is the reverse implementation of method join_lexicon_key.
 
 This method is the reverse implementation of method join_message_key.
 
-    $hash_ref = $self->split_message_key($message_key);
+    $hash_ref = $keys_util->split_message_key($message_key);
 
 =head1 EXAMPLE
 
@@ -148,11 +160,13 @@ none
 
 =head1 DEPENDENCIES
 
-L<Moo::Role|Moo::Role>
+L<Locale::TextDomain::OO::Util::Constants|Locale::TextDomain::OO::Util::Constants>
+
+L<Moo|Moo>
+
+L<MooX::StrictConstructor|MooX::StrictConstructor>
 
 L<namespace::autoclean|namespace::autoclean>
-
-L<Locale::TextDomain::OO::Extract::Role::Constants|Locale::TextDomain::OO::Extract::Role::Constants>
 
 =head1 INCOMPATIBILITIES
 

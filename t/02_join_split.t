@@ -3,27 +3,26 @@
 use strict;
 use warnings;
 
-use Moo;
-use Test::More tests => 9;
+use Test::More tests => 10;
 use Test::NoWarnings;
 use Test::Differences;
 
-with qw(
-    Locale::TextDomain::OO::Extract::Role::JoinSplitLexiconKeys
-);
+BEGIN {
+    use_ok 'Locale::TextDomain::OO::Util::JoinSplitLexiconKeys';
+}
 
-my $object = __PACKAGE__->new;
+my $key_util = Locale::TextDomain::OO::Util::JoinSplitLexiconKeys->instance;
 
 is
-    $object->join_lexicon_key({}),
+    $key_util->join_lexicon_key({}),
     'i-default::',
     'join empty lexicon key';
 eq_or_diff
-    $object->split_lexicon_key,
+    $key_util->split_lexicon_key,
     {},
     'split undef lexicon key';
 is
-    $object->join_lexicon_key({
+    $key_util->join_lexicon_key({
         language => 'de-de',
         category => 'my category',
         domain   => 'my domain',
@@ -31,7 +30,7 @@ is
     'de-de:my category:my domain',
     'join lexicon key';
 eq_or_diff
-    $object->split_lexicon_key('de-de:my category:my domain'),
+    $key_util->split_lexicon_key('de-de:my category:my domain'),
     {
         language => 'de-de',
         category => 'my category',
@@ -40,15 +39,15 @@ eq_or_diff
     'split lexicon key';
 
 is
-    $object->join_message_key({}),
+    $key_util->join_message_key({}),
     q{},
     'join empty message key';
 eq_or_diff
-    $object->split_message_key,
+    $key_util->split_message_key,
     {},
     'split undef message key';
 eq_or_diff
-    $object->join_message_key({
+    $key_util->join_message_key({
         msgctxt      => 'my context',
         msgid        => 'my singular',
         msgid_plural => 'my plural',
@@ -56,7 +55,7 @@ eq_or_diff
     "my singular\x00my plural\x04my context",
     'join message key';
 eq_or_diff
-    $object->split_message_key("my singular\x00my plural\x04my context"),
+    $key_util->split_message_key("my singular\x00my plural\x04my context"),
     {
         msgctxt      => 'my context',
         msgid        => 'my singular',
