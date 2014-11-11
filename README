@@ -1,7 +1,7 @@
-Locale-TextDomain-OO-Util version 0.001
-=======================================
+Locale-TextDomain-OO-Extract version 2.002
+==========================================
 
-Utils for Perl OO Interface to Uniforum Message Translation
+Perl OO Interface to Uniforum Message Translation
 
 INSTALLATION
 
@@ -18,17 +18,17 @@ This module requires these other modules and libraries:
 
     Carp
     Clone
-    English
+    Data::Dumper
     Moo
-    MooX::Singleton
     MooX::StrictConstructor
-    Safe
+    MooX::Types::MooseLike
+    Path::Tiny
     charnames
     namespace::autoclean
 
 COPYRIGHT AND LICENCE
 
-Copyright (c) 2014,
+Copyright (c) 2009 - 2014,
 Steffen Winkler
 steffenw at cpan.org.
 All rights reserved.

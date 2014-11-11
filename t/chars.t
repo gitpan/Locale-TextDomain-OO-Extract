@@ -32,6 +32,8 @@ find(
                 | / \.git /
                 | / \.gitignore \z
             }xms and return;
+            $File::Find::name =~ m{\. [pm]o \z}xms
+                and return;
             $File::Find::name =~ m{
                 (
                     (?: /lib/ | /example/ | /t/ )
@@ -50,6 +52,8 @@ find(
 plan( tests => 6 * scalar @list );
 
 my @ignore_non_ascii = (
+    qr{ _ (?: utf-8 ) [.] (?: t | pl ) \z }xms,
+    qr{ [.] (?: tt ) \z }xms,
 );
 
 for my $file_name (sort @list) {
