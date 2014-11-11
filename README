@@ -1,4 +1,4 @@
-Locale-TextDomain-OO-Extract version 2.002
+Locale-TextDomain-OO-Extract version 2.003
 ==========================================
 
 Perl OO Interface to Uniforum Message Translation
@@ -17,13 +17,17 @@ DEPENDENCIES
 This module requires these other modules and libraries:
 
     Carp
+    Class::Load
     Clone
     Data::Dumper
+    Encode
+    Locale::MO::File
+    Locale::TextDomain::OO::Util
     Moo
     MooX::StrictConstructor
     MooX::Types::MooseLike
     Path::Tiny
-    charnames
+    Set::Scalar
     namespace::autoclean
 
 COPYRIGHT AND LICENCE

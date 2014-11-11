@@ -1,5 +1,9 @@
 Revision history for Perl extension Locale::TextDomain:OO::Extract.
 
+2.003  Tue Nov 11 22:13:21 2014
+- fixed POD
+- use Locale::MO::File 0.05
+
 2.002  Tue Nov 11 17:11:57 2014
 - extend extractors to find more
 - added process tool

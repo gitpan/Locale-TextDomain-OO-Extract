@@ -12,7 +12,7 @@ WriteMakefile
                    'Cwd' => 0,
                    'Data::Dumper' => 0,
                    'Encode' => 0,
-                   'Locale::MO::File' => 0,
+                   'Locale::MO::File' => '0.05',
                    'Locale::TextDomain::OO::Util' => '3.001',
                    'Moo' => '1.003001',
                    'MooX::StrictConstructor' => 0,

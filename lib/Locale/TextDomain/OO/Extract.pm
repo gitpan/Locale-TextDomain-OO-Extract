@@ -3,7 +3,7 @@ package Locale::TextDomain::OO::Extract; ## no critic (TidyCode)
 use strict;
 use warnings;
 
-our $VERSION = '2.002';
+our $VERSION = '2.003';
 
 1;
 
@@ -18,7 +18,7 @@ $HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trun
 
 =head1 VERSION
 
-2.002
+2.003
 
 =head1 DESCRIPTION
 

@@ -12,7 +12,7 @@ use MooX::StrictConstructor;
 use MooX::Types::MooseLike::Base qw(HashRef Str);
 use namespace::autoclean;
 
-our $VERSION = '2.002';
+our $VERSION = '2.003';
 
 has category => (
     is      => 'rw',
@@ -211,7 +211,7 @@ $HeadURL: svn+ssh://steffenw@svn.code.sf.net/p/perl-gettext-oo/code/extract/trun
 
 =head1 VERSION
 
-2.002
+2.003
 
 =head1 SYNOPSIS
 
@@ -224,6 +224,31 @@ MO file plugin
 
 =head1 SUBROUTINES/METHODS
 
+=head2 method new
+
+=head2 rw attribute category, domain, language
+
+The type is Str, defaults to q{} but language to 'i-default'.
+
+=head2 rw attribute project
+
+The type is Undef or Str.
+
+=head2 method lexicon_ref
+
+The type is HashRef, defaults to {}.
+
+=head2 method slurp
+
+Read MO file into lexicon_ref.
+
+    $self->slurp($filename);
+
+=head2 method spew
+
+Write MO file from lexicon_ref.
+
+    $self->spew($filename);
 
 =head1 EXAMPLE
 

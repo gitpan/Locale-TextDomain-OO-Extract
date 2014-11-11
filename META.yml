@@ -20,7 +20,7 @@ name: Locale-TextDomain-OO-Extract
 provides:
   Locale::TextDomain::OO::Extract:
     file: lib/Locale/TextDomain/OO/Extract.pm
-    version: '2.002'
+    version: '2.003'
   Locale::TextDomain::OO::Extract::Base::RegexBasedExtractor:
     file: lib/Locale/TextDomain/OO/Extract/Base/RegexBasedExtractor.pm
     version: '2.000'
@@ -38,10 +38,10 @@ provides:
     version: '2.002'
   Locale::TextDomain::OO::Extract::Process::Plugin::MO:
     file: lib/Locale/TextDomain/OO/Extract/Process/Plugin/MO.pm
-    version: '2.002'
+    version: '2.003'
   Locale::TextDomain::OO::Extract::Process::Plugin::PO:
     file: lib/Locale/TextDomain/OO/Extract/Process/Plugin/PO.pm
-    version: '2.002'
+    version: '2.003'
   Locale::TextDomain::OO::Extract::Role::File:
     file: lib/Locale/TextDomain/OO/Extract/Role/File.pm
     version: '2.002'
@@ -57,7 +57,7 @@ requires:
   Clone: '0'
   Data::Dumper: '0'
   Encode: '0'
-  Locale::MO::File: '0'
+  Locale::MO::File: '0.05'
   Locale::TextDomain::OO::Util: '3.001'
   Moo: '1.003001'
   MooX::StrictConstructor: '0'
@@ -68,4 +68,4 @@ requires:
   perl: '5.009005'
 resources:
   license: http://dev.perl.org/licenses/
-version: '2.002'
+version: '2.003'
